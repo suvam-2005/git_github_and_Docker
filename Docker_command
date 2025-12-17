@@ -1,0 +1,21 @@
+terminal code
+
+#to build name_container
+
+docker build -t name_folder/name_container .
+
+#to run
+
+docker run -p 8888:5000 name_folder/name_container
+
+#to upload in docker hub
+
+docker login
+
+docker push name_folder/name_container
+
+#to download from docker hub
+
+docker pull name_folder/name_container
+
+docker run -p 8888:5000 name_folder/name_container
