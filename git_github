@@ -1,0 +1,127 @@
+Git -> version control system
+    a) track the history
+    b) collaborate
+
+GitHub -> Platform to store your code
+    a) add
+    b) commit
+
+# for Git
+>> vs code
+>> Git bash
+
+~ -> root directory
+
+git config --global user.name "My name"
+git config --global user.email "email"
+git config --list
+
+# basic commands
+
+clone:
+    a) remote -> GitHub
+    b) local -> laptop
+    command: 
+        git clone <-repository link->
+        cd <-directory name-> #to get inside and directory
+        cd .. #to go back to previous directory
+        cd ~ #to go to root directory
+        ls #to check files
+        ls -a #to get all the hidden files 
+        ls -force #for powershell to get all hidden files
+
+Status:
+    command:
+        git status
+    #types of files
+        a) untracked files -> new files
+        b) modified files -> changes made but not yet staged
+        c) staged files -> changes ready to be committed
+        d) unmodified files -> no changes
+
+add:
+    command:
+        git add <-file name->
+        to add all files: git add .
+
+commit:
+    command:
+        git commit -m "message"
+
+push:
+    command:
+        git push origin <-branch name-> 
+        or
+        git push origin main
+
+pull:
+    command:
+        git pull origin <-branch name->
+        or 
+        git pull origin main
+
+ init: # to initialize a new git repository
+    command:
+        git init # to create a new repository locally
+        mkdir <-directory name-> # to create a new directory
+        cd <-directory name->
+        #go to GitHub to create a new repository
+        git remote add origin <-repository link-> # to link local repo to remote repo
+        git remote -v # to verify the link
+        git branch # to check current branch
+        git branch -M main # to rename current branch to main
+        git push- # to push the code to remote repo for the first time
+
+General steps:
+    1) to clone and work
+        create repo
+        clone it
+        make changes
+        add
+        commit
+        push
+
+    2) to create a new repo and push code
+        create repo
+        git init
+        git remote add origin <-repository link->
+        git branch -M main
+        git add .
+        git commit -m "message"
+        git push -u origin main
+
+--- Git Branches ---
+
+    command:
+        Creating Branches:
+            git branch # to view all branches
+            git branch -M <-new-branch-name-> # to rename current branch
+            git checkout <-branch-name-> # to switch to another branch
+            git checkout -b <-new-branch-name-> # to create and switch to new branch
+            git branch -d <-branch-name-> # to delete a branch
+        
+        Merging Branches:
+            a) using Git
+                git diff <-branch1-> <-branch2-> # to see the differences between two branches
+                git merge <-branch-to-merge-> # merge the specified branch into the current branch
+
+            b) using Pull Request on GitHub
+                create a pull request
+
+---Merge Conflict---
+    # when the same part of the same file is modified in both branches
+    # need to resolve manually
+    # after resolving, add, commit and push
+
+--- Undoing Changes ---
+    command:
+        git reset <-file-name-> # unstage a file
+        git reset # to unstage all files
+        git reset HEAD~1 # to undo the last commit but keep changes in working directory
+        git reset <-commit-hash-> --hard # to undo commits and discard changes
+        git log # to view commit history
+
+---Fork---
+    # to create a copy of someone else's repository to your GitHub account
+    # make changes in the forked repo
+    # create a pull request to the original repo to suggest changes
